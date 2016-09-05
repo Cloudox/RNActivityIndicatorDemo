@@ -18,11 +18,12 @@ class RNActivityIndicatorDemo extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
+    this.state = {// 初始设为显示加载动画
       animating: true,
     };
   }
 
+  // 按钮响应方法，切换显示与隐藏
   showOrHide() {
     if (this.state.animating) {
       this.setState({
@@ -38,14 +39,17 @@ class RNActivityIndicatorDemo extends Component {
   render() {
     return (
       <View style={styles.container}>
+      {/* 切换显示或隐藏的按钮 */}
         <TouchableOpacity underlayColor="#fff" style={styles.btn} onPress={
           this.showOrHide.bind(this)}>
             <Text style={{color:'#fff', fontSize: 20}}>显示/隐藏</Text>
         </TouchableOpacity>
+      {/* 小号的指示器 */}
         <ActivityIndicator
           animating={this.state.animating}
           style={[styles.centering, {height: 80}]}
           size="small" />
+      {/* 大号的指示器 */}
         <ActivityIndicator
           animating={this.state.animating}
           style={[styles.centering, {height: 80}]}
